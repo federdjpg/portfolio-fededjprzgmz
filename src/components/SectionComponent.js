@@ -14,7 +14,6 @@ import bootstrap from "../assets/img/bootstrap.png";
 class SectionComponent extends Component {
   contador = 0;
   setNavbarOpen = "hola mundo";
-
   state = {
     contador: 0,
     showMe: true,
@@ -37,9 +36,40 @@ class SectionComponent extends Component {
     });
   };
 
+  changeTheme = (e) => {
+    let configUser = window.matchMedia('(prefers-color-scheme: dark)');
+    let theme = document.querySelector('#theme');
+    let localConfig = localStorage.getItem('tema');
+    // let boton = document.querySelector('#boton');
+
+
+
+    if (localConfig === 'dark') {
+      theme.classList.toggle('theme-dark');
+    } else if (localConfig === 'light') {
+      theme.classList.toggle('theme-light');
+    }
+
+    // boton.addEventListener('click', () => {
+      var colorTema;
+      if (configUser.matches) {
+        theme.classList.toggle('theme-light');
+        colorTema = theme.classList.contains('theme-light') ? 'light' : 'dark';
+      } else {
+        theme.classList.toggle('theme-dark');
+        colorTema = theme.classList.contains('theme-dark') ? 'dark' : 'light';
+      }
+  
+      localStorage.setItem('tema', colorTema);
+    // })
+
+  }
+
   render() {
     return (
-      <section>
+      <section id="theme" className="">
+
+        <botton id="boton" onClick={this.changeTheme} className="btn btn-primary">Cambiar tema</botton>
         {/* <p>{this.state.contador}</p>
             
             <button onClick={this.sumar}>

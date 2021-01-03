@@ -1,3 +1,9 @@
+:root{
+  --bg-dark-gray: #1F2937;
+  --text-dark-white:#fff;
+  --bg-light-gray: #ffffff;
+  --text-light-white:rgba(22, 22, 22, 0.87);
+}
 .App {
   text-align: center;
 }
@@ -16,6 +22,24 @@
 height: 2px;
 background-color: #65ECF7;
 }
+
+  section.theme-dark {
+    background-color: var(--bg-dark-gray) ;
+    color: var(--text-dark-white);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    section {
+      background-color: var(--bg-dark-gray) ;
+      color: var(--text-dark-white);
+    }
+    section.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    
+  }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
