@@ -11,7 +11,7 @@ class FooterComponent extends Component {
     let fecha = new Date();
     let actual = fecha.getFullYear();
     return (
-      <footer className=" bg-gray-900 h-24 text-white mt-4">
+      <footer className=" bg-gray-900 h-24 text-white">
         <div className="flex flex-wrap justify-center pt-4">
           <a href="">
             <img className="ml-2" src={facebook} width="30" alt="" />{" "}

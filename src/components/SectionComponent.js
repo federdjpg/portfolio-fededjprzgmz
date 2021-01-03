@@ -67,7 +67,7 @@ class SectionComponent extends Component {
 
   render() {
     return (
-      <section id="theme" className="">
+      <section id="theme" className=" pb-4">
 
         <botton id="boton" onClick={this.changeTheme} className="btn btn-primary">Cambiar tema</botton>
         {/* <p>{this.state.contador}</p>
