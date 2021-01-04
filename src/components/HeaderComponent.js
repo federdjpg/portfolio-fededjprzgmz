@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "../assets/img/portafolio.svg";
+import theme from '../assets/img/arrow.png'
 
 class HeaderComponent extends Component {
 
@@ -12,6 +13,78 @@ class HeaderComponent extends Component {
     this.setState({
      showMe: !this.state.showMe
    })
+  }
+
+
+  changeTheme = (e) => {
+    let configUser = window.matchMedia('(prefers-color-scheme: dark)');
+    let theme = document.querySelector('#theme');
+    let modalHeader = document.querySelector('#modal-header');
+    let modalHeader2 = document.querySelector('#modal-header2');
+    let modalHeader3 = document.querySelector('#modal-header3');
+    let modalBody = document.querySelector('#modal-body');
+    let modalBody2 = document.querySelector('#modal-body2');
+    let modalBody3 = document.querySelector('#modal-body3');
+    let modalFooter = document.querySelector('#modal-footer');
+    let modalFooter2 = document.querySelector('#modal-footer2');
+    let modalFooter3 = document.querySelector('#modal-footer3');
+    let localConfig = localStorage.getItem('tema');
+    var colorTema;
+
+    // if (localConfig === 'dark') {
+    //   // console.log("es negro")
+    //   theme.classList.toggle('theme-dark');
+    // } else if (localConfig === 'light') {
+    //   theme.classList.toggle('theme-light');
+    // }
+
+    if (configUser.matches) {
+      theme.classList.toggle('theme-light');
+      modalHeader.classList.toggle('theme-light');
+      modalHeader2.classList.toggle('theme-light');
+      modalHeader3.classList.toggle('theme-light');
+      modalBody.classList.toggle('theme-light');
+      modalBody2.classList.toggle('theme-light');
+      modalBody3.classList.toggle('theme-light');
+      modalFooter.classList.toggle('theme-light');
+      modalFooter2.classList.toggle('theme-light');
+      modalFooter3.classList.toggle('theme-light');
+      colorTema = theme.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalHeader.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalHeader2.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalHeader3.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalBody.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalBody2.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalBody3.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalFooter.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalFooter2.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalFooter3.classList.contains('theme-light') ? 'light' : 'dark';
+    } else {
+      theme.classList.toggle('theme-dark');
+      modalHeader.classList.toggle('theme-dark');
+      modalHeader2.classList.toggle('theme-dark');
+      modalHeader3.classList.toggle('theme-dark');
+      modalBody.classList.toggle('theme-dark');
+      modalBody2.classList.toggle('theme-dark');
+      modalBody3.classList.toggle('theme-dark');
+      modalFooter.classList.toggle('theme-dark');
+      modalFooter2.classList.toggle('theme-dark');
+      modalFooter3.classList.toggle('theme-dark');
+
+      colorTema = theme.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalHeader.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalHeader2.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalHeader3.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalBody.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalBody2.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalBody3.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalFooter.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalFooter2.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalFooter3.classList.contains('theme-dark') ? 'dark' : 'light';
+    }
+
+    localStorage.setItem('tema', colorTema);
+
   }
 
   render() {
@@ -74,6 +147,10 @@ class HeaderComponent extends Component {
                 />
               </div>
 
+
+
+
+              
               <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">
                   <a
@@ -95,9 +172,25 @@ class HeaderComponent extends Component {
                   >
                     Experience
                   </a>
+                  {/* <botton onClick={this.changeTheme} className="btn btn-primary mt-4">Cambiar tema</botton> */}
+
                 </div>
               </div>
+
             </div>
+
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+              <div class="ml-3 relative bg-red-600">
+                <div>
+              <button onClick={this.changeTheme} class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+                    <img class="h-8 w-8 rounded-full" src={theme} alt="" />
+                  </button>
+                  
+            </div>
+              </div>
+              </div>
+
           </div>
         </div>
 

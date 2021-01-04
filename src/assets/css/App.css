@@ -1,6 +1,7 @@
 :root{
   --bg-dark-gray: #1F2937;
   --text-dark-white:#fff;
+  --text-dark-black:#000;
   --bg-light-gray: #ffffff;
   --text-light-white:rgba(22, 22, 22, 0.87);
 }
@@ -23,7 +24,22 @@ height: 2px;
 background-color: #65ECF7;
 }
 
-  section.theme-dark {
+  /* section.theme-dark {
+    background-color: var(--bg-dark-gray) ;
+    color: var(--text-dark-white);
+  } */
+
+
+  /* modal header */
+  section .modal-header{
+    background-color: var(--bg-dark-gray) ;
+    color: var(--text-dark-white);
+  }
+  section .modal-body{
+    background-color: var(--bg-dark-gray) ;
+    color: var(--text-dark-white);
+  }
+  section .modal-footer{
     background-color: var(--bg-dark-gray) ;
     color: var(--text-dark-white);
   }
@@ -33,7 +49,44 @@ background-color: #65ECF7;
       background-color: var(--bg-dark-gray) ;
       color: var(--text-dark-white);
     }
+
     section.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-header.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-header2.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-header3.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-body.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-body2.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-body3.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-footer.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-footer2.theme-light{
+      background-color: var(--bg-light-gray);
+      color: var(--text-light-white);
+    }
+    #modal-footer3.theme-light{
       background-color: var(--bg-light-gray);
       color: var(--text-light-white);
     }

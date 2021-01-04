@@ -39,37 +39,78 @@ class SectionComponent extends Component {
   changeTheme = (e) => {
     let configUser = window.matchMedia('(prefers-color-scheme: dark)');
     let theme = document.querySelector('#theme');
+    let modalHeader = document.querySelector('#modal-header');
+    let modalHeader2 = document.querySelector('#modal-header2');
+    let modalHeader3 = document.querySelector('#modal-header3');
+    let modalBody = document.querySelector('#modal-body');
+    let modalBody2 = document.querySelector('#modal-body2');
+    let modalBody3 = document.querySelector('#modal-body3');
+    let modalFooter = document.querySelector('#modal-footer');
+    let modalFooter2 = document.querySelector('#modal-footer2');
+    let modalFooter3 = document.querySelector('#modal-footer3');
     let localConfig = localStorage.getItem('tema');
-    // let boton = document.querySelector('#boton');
+    var colorTema;
 
+    // if (localConfig === 'dark') {
+    //   // console.log("es negro")
+    //   theme.classList.toggle('theme-dark');
+    // } else if (localConfig === 'light') {
+    //   theme.classList.toggle('theme-light');
+    // }
 
-
-    if (localConfig === 'dark') {
-      theme.classList.toggle('theme-dark');
-    } else if (localConfig === 'light') {
+    if (configUser.matches) {
       theme.classList.toggle('theme-light');
+      modalHeader.classList.toggle('theme-light');
+      modalHeader2.classList.toggle('theme-light');
+      modalHeader3.classList.toggle('theme-light');
+      modalBody.classList.toggle('theme-light');
+      modalBody2.classList.toggle('theme-light');
+      modalBody3.classList.toggle('theme-light');
+      modalFooter.classList.toggle('theme-light');
+      modalFooter2.classList.toggle('theme-light');
+      modalFooter3.classList.toggle('theme-light');
+      colorTema = theme.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalHeader.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalHeader2.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalHeader3.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalBody.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalBody2.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalBody3.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalFooter.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalFooter2.classList.contains('theme-light') ? 'light' : 'dark';
+      colorTema = modalFooter3.classList.contains('theme-light') ? 'light' : 'dark';
+    } else {
+      theme.classList.toggle('theme-dark');
+      modalHeader.classList.toggle('theme-dark');
+      modalHeader2.classList.toggle('theme-dark');
+      modalHeader3.classList.toggle('theme-dark');
+      modalBody.classList.toggle('theme-dark');
+      modalBody2.classList.toggle('theme-dark');
+      modalBody3.classList.toggle('theme-dark');
+      modalFooter.classList.toggle('theme-dark');
+      modalFooter2.classList.toggle('theme-dark');
+      modalFooter3.classList.toggle('theme-dark');
+
+      colorTema = theme.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalHeader.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalHeader2.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalHeader3.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalBody.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalBody2.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalBody3.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalFooter.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalFooter2.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = modalFooter3.classList.contains('theme-dark') ? 'dark' : 'light';
     }
 
-    // boton.addEventListener('click', () => {
-      var colorTema;
-      if (configUser.matches) {
-        theme.classList.toggle('theme-light');
-        colorTema = theme.classList.contains('theme-light') ? 'light' : 'dark';
-      } else {
-        theme.classList.toggle('theme-dark');
-        colorTema = theme.classList.contains('theme-dark') ? 'dark' : 'light';
-      }
-  
-      localStorage.setItem('tema', colorTema);
-    // })
+    localStorage.setItem('tema', colorTema);
 
   }
 
   render() {
     return (
-      <section id="theme" className=" pb-4">
+      <section id="theme" className="pb-4">
 
-        <botton id="boton" onClick={this.changeTheme} className="btn btn-primary">Cambiar tema</botton>
         {/* <p>{this.state.contador}</p>
             
             <button onClick={this.sumar}>
@@ -90,7 +131,7 @@ class SectionComponent extends Component {
         {/* <button onClick={this.hidden} className="btn btn-primary">
               ocultar
             </button> */}
-        <h1 className="text-4xl text-center mb-4">Experience</h1>
+        <h1 className="text-4xl text-center mb-4">Portfolio</h1>
         <hr />
 
         <article
@@ -133,7 +174,7 @@ class SectionComponent extends Component {
               role="document"
             >
               <div className="modal-content ">
-                <div className="modal-header">
+                <div id="modal-header" className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
                     Smapa
                   </h5>
@@ -146,14 +187,14 @@ class SectionComponent extends Component {
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div className="modal-body">
+                <div id="modal-body" className="modal-body">
                   <img src={img} alt="" />
                   <div>
                     <p>This web sitie is the social service for Sistema Municipal de Agua Potable y Alcantarillado (Smapa) specifically for manage the team saneamiento </p>
                     <p>It was developed using technologies html5, css3, javascript, jquery, bootstrap, php, mysql.</p>
                   </div>
                 </div>
-                <div className="modal-footer">
+                <div id="modal-footer" className="modal-footer">
                   {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
                   <button
                     type="button"
@@ -181,7 +222,7 @@ class SectionComponent extends Component {
               role="document"
             >
               <div className="modal-content">
-                <div className="modal-header">
+                <div id="modal-header2" className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
                     Levi ackerman2
                   </h5>
@@ -194,10 +235,10 @@ class SectionComponent extends Component {
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div className="modal-body">
+                <div id="modal-body2" className="modal-body">
                   <img src={img2} alt="" />
                 </div>
-                <div className="modal-footer">
+                <div id="modal-footer2" className="modal-footer">
                   {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
                   <button
                     type="button"
@@ -225,7 +266,7 @@ class SectionComponent extends Component {
               role="document"
             >
               <div className="modal-content">
-                <div className="modal-header">
+                <div id="modal-header3" className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
                     Levi ackerman3
                   </h5>
@@ -238,10 +279,10 @@ class SectionComponent extends Component {
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div className="modal-body">
+                <div id="modal-body3" className="modal-body">
                   <img src={img3} alt="" />
                 </div>
-                <div className="modal-footer">
+                <div id="modal-footer3" className="modal-footer">
                   {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
                   <button
                     type="button"
