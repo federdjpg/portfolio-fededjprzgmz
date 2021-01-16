@@ -14,9 +14,14 @@ import bootstrap from "../assets/img/bootstrap.png";
 class SectionComponent extends Component {
   contador = 0;
   setNavbarOpen = "hola mundo";
+
   state = {
     contador: 0,
     showMe: true,
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
   };
 
   sumar = (e) => {
@@ -37,18 +42,18 @@ class SectionComponent extends Component {
   };
 
   changeTheme = (e) => {
-    let configUser = window.matchMedia('(prefers-color-scheme: dark)');
-    let theme = document.querySelector('#theme');
-    let modalHeader = document.querySelector('#modal-header');
-    let modalHeader2 = document.querySelector('#modal-header2');
-    let modalHeader3 = document.querySelector('#modal-header3');
-    let modalBody = document.querySelector('#modal-body');
-    let modalBody2 = document.querySelector('#modal-body2');
-    let modalBody3 = document.querySelector('#modal-body3');
-    let modalFooter = document.querySelector('#modal-footer');
-    let modalFooter2 = document.querySelector('#modal-footer2');
-    let modalFooter3 = document.querySelector('#modal-footer3');
-    let localConfig = localStorage.getItem('tema');
+    let configUser = window.matchMedia("(prefers-color-scheme: dark)");
+    let theme = document.querySelector("#theme");
+    let modalHeader = document.querySelector("#modal-header");
+    let modalHeader2 = document.querySelector("#modal-header2");
+    let modalHeader3 = document.querySelector("#modal-header3");
+    let modalBody = document.querySelector("#modal-body");
+    let modalBody2 = document.querySelector("#modal-body2");
+    let modalBody3 = document.querySelector("#modal-body3");
+    let modalFooter = document.querySelector("#modal-footer");
+    let modalFooter2 = document.querySelector("#modal-footer2");
+    let modalFooter3 = document.querySelector("#modal-footer3");
+    let localConfig = localStorage.getItem("tema");
     var colorTema;
 
     // if (localConfig === 'dark') {
@@ -59,58 +64,139 @@ class SectionComponent extends Component {
     // }
 
     if (configUser.matches) {
-      theme.classList.toggle('theme-light');
-      modalHeader.classList.toggle('theme-light');
-      modalHeader2.classList.toggle('theme-light');
-      modalHeader3.classList.toggle('theme-light');
-      modalBody.classList.toggle('theme-light');
-      modalBody2.classList.toggle('theme-light');
-      modalBody3.classList.toggle('theme-light');
-      modalFooter.classList.toggle('theme-light');
-      modalFooter2.classList.toggle('theme-light');
-      modalFooter3.classList.toggle('theme-light');
-      colorTema = theme.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalHeader.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalHeader2.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalHeader3.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalBody.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalBody2.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalBody3.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalFooter.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalFooter2.classList.contains('theme-light') ? 'light' : 'dark';
-      colorTema = modalFooter3.classList.contains('theme-light') ? 'light' : 'dark';
+      theme.classList.toggle("theme-light");
+      modalHeader.classList.toggle("theme-light");
+      modalHeader2.classList.toggle("theme-light");
+      modalHeader3.classList.toggle("theme-light");
+      modalBody.classList.toggle("theme-light");
+      modalBody2.classList.toggle("theme-light");
+      modalBody3.classList.toggle("theme-light");
+      modalFooter.classList.toggle("theme-light");
+      modalFooter2.classList.toggle("theme-light");
+      modalFooter3.classList.toggle("theme-light");
+      colorTema = theme.classList.contains("theme-light") ? "light" : "dark";
+      colorTema = modalHeader.classList.contains("theme-light")
+        ? "light"
+        : "dark";
+      colorTema = modalHeader2.classList.contains("theme-light")
+        ? "light"
+        : "dark";
+      colorTema = modalHeader3.classList.contains("theme-light")
+        ? "light"
+        : "dark";
+      colorTema = modalBody.classList.contains("theme-light")
+        ? "light"
+        : "dark";
+      colorTema = modalBody2.classList.contains("theme-light")
+        ? "light"
+        : "dark";
+      colorTema = modalBody3.classList.contains("theme-light")
+        ? "light"
+        : "dark";
+      colorTema = modalFooter.classList.contains("theme-light")
+        ? "light"
+        : "dark";
+      colorTema = modalFooter2.classList.contains("theme-light")
+        ? "light"
+        : "dark";
+      colorTema = modalFooter3.classList.contains("theme-light")
+        ? "light"
+        : "dark";
     } else {
-      theme.classList.toggle('theme-dark');
-      modalHeader.classList.toggle('theme-dark');
-      modalHeader2.classList.toggle('theme-dark');
-      modalHeader3.classList.toggle('theme-dark');
-      modalBody.classList.toggle('theme-dark');
-      modalBody2.classList.toggle('theme-dark');
-      modalBody3.classList.toggle('theme-dark');
-      modalFooter.classList.toggle('theme-dark');
-      modalFooter2.classList.toggle('theme-dark');
-      modalFooter3.classList.toggle('theme-dark');
+      theme.classList.toggle("theme-dark");
+      modalHeader.classList.toggle("theme-dark");
+      modalHeader2.classList.toggle("theme-dark");
+      modalHeader3.classList.toggle("theme-dark");
+      modalBody.classList.toggle("theme-dark");
+      modalBody2.classList.toggle("theme-dark");
+      modalBody3.classList.toggle("theme-dark");
+      modalFooter.classList.toggle("theme-dark");
+      modalFooter2.classList.toggle("theme-dark");
+      modalFooter3.classList.toggle("theme-dark");
 
-      colorTema = theme.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalHeader.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalHeader2.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalHeader3.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalBody.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalBody2.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalBody3.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalFooter.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalFooter2.classList.contains('theme-dark') ? 'dark' : 'light';
-      colorTema = modalFooter3.classList.contains('theme-dark') ? 'dark' : 'light';
+      colorTema = theme.classList.contains("theme-dark") ? "dark" : "light";
+      colorTema = modalHeader.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
+      colorTema = modalHeader2.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
+      colorTema = modalHeader3.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
+      colorTema = modalBody.classList.contains("theme-dark") ? "dark" : "light";
+      colorTema = modalBody2.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
+      colorTema = modalBody3.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
+      colorTema = modalFooter.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
+      colorTema = modalFooter2.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
+      colorTema = modalFooter3.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
     }
 
-    localStorage.setItem('tema', colorTema);
+    localStorage.setItem("tema", colorTema);
+  };
 
+  change = (e) => {
+    const {name, value } = e.target
+    this.setState({
+      [name]: value
+    })
+  }
+  
+  sendEmail = (e)=>{
+    e.preventDefault();
+    let data = document.querySelector('.dataEmail'),
+      name = document.querySelector('.name').value,
+      email = document.querySelector('.email').value,
+      phone = document.querySelector('.phone').value,
+      message = document.querySelector('.message').value,
+      success = document.querySelector('.load');
+    let bigData= {
+      name: name,
+      email: email,
+      phone: phone,
+      message:message
+    }
+    console.log(bigData);
+    // console.log(this.state) 
+    // const values = JSON.stringify(this.state)
+    // alert(values)
+    fetch('https://formsubmit.co/ajax/federicodjprzgmz247@gmail.com', {
+      method:"POST",
+      body: bigData
+  })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+      .then(json => {
+        console.log(json)
+        data.reset();
+        success.classList.toggle("load");
+        
+      })
+      .catch(error => {
+          console.log(error);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          success.classList.toggle("load");
+        }, 3000);
+    })
   }
 
+
   render() {
+    const { name, email, phone, message } = this.state;
+
     return (
       <section id="theme" className="pb-4">
-
         {/* <p>{this.state.contador}</p>
             
             <button onClick={this.sumar}>
@@ -190,8 +276,15 @@ class SectionComponent extends Component {
                 <div id="modal-body" className="modal-body">
                   <img src={img} alt="" />
                   <div>
-                    <p>This web sitie is the social service for Sistema Municipal de Agua Potable y Alcantarillado (Smapa) specifically for manage the team saneamiento </p>
-                    <p>It was developed using technologies html5, css3, javascript, jquery, bootstrap, php, mysql.</p>
+                    <p>
+                      This web sitie is the social service for Sistema Municipal
+                      de Agua Potable y Alcantarillado (Smapa) specifically for
+                      manage the team saneamiento{" "}
+                    </p>
+                    <p>
+                      It was developed using technologies html5, css3,
+                      javascript, jquery, bootstrap, php, mysql.
+                    </p>
                   </div>
                 </div>
                 <div id="modal-footer" className="modal-footer">
@@ -342,6 +435,34 @@ class SectionComponent extends Component {
               laboriosam! Explicabo ipsa mollitia at?
             </p>
           </div>
+        </article>
+        <article className="mt-4">
+          <h1 className="text-4xl text-center mb-4">Contact</h1>
+          <hr/>
+          <div className="w-1/3 shadow-lg rounded-lg h-auto mx-auto text-gray-600 font-bold">
+            <form onSubmit={this.sendEmail} className="dataEmail">
+              <div>
+                <label className="block" for="name">Name</label>
+                <input className="w-full name" type="text"  name="name" required placeholder="your name" />
+              </div>
+              <div>
+                <label className="block" for="email">email</label>
+                <input className="w-full email" type="email"  name="email" required placeholder="your email" />
+              </div>
+              <div>
+                <label className="block" for="phone">phone</label>
+                <input className="w-full phone" type="number"  name="phone" required placeholder="your number"/>
+              </div>
+              <div>
+                <label className="block" for="message">message</label>
+                <textarea className="w-full message font-bold" name="message" rows="5" placeholder="your message" required></textarea>
+              </div>
+              <div className="load">
+                <p>Los datos se enviaron correctamenta</p>
+              </div>
+              <input className="bg-blue-500 text-white hover:bg-blue-700 w-1/4 h-10 rounded-lg mb-2" type="submit" value="Send Message"/>
+            </form>
+          </div> 
         </article>
       </section>
     );

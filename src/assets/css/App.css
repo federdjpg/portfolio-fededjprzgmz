@@ -1,9 +1,17 @@
 :root{
-  --bg-dark-gray: #1F2937;
+  /* --bg-dark-gray: #1F2937; */
+  --bg-dark-gray: #35363A;
+  /* --bg-dark-gray:#181818; */
   --text-dark-white:#fff;
   --text-dark-black:#000;
   --bg-light-gray: #ffffff;
   --text-light-white:rgba(22, 22, 22, 0.87);
+}
+html{
+  scroll-behavior: smooth;
+}
+.load{
+  display: none;
 }
 .App {
   text-align: center;
