@@ -439,7 +439,7 @@ class SectionComponent extends Component {
         <article className="mt-4">
           <h1 className="text-4xl text-center mb-4">Contact</h1>
           <hr/>
-          <div className="w-1/3 shadow-lg rounded-lg h-auto mx-auto text-gray-600 font-bold">
+          <div className="sm:w-1/2 lg:w-1/3 shadow-lg rounded-lg h-auto mx-auto text-gray-600 font-bold">
             <form onSubmit={this.sendEmail} className="dataEmail">
               <div>
                 <label className="block" for="name">Name</label>
