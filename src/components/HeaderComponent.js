@@ -172,6 +172,12 @@ class HeaderComponent extends Component {
                   >
                     Experience
                   </a>
+                  <a
+                    href="#contact"
+                    className="experience text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Contact
+                  </a>
                   {/* <botton onClick={this.changeTheme} className="btn btn-primary mt-4">Cambiar tema</botton> */}
 
                 </div>
@@ -216,8 +222,14 @@ class HeaderComponent extends Component {
                 href="#experience"
                 className="experience text-gray-300 hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
-                Experince
+                  Experince
             </a>
+                 <a
+                    href="#contact"
+                    className="experience text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Contact
+                  </a>
             </div>
             </div>
             :null

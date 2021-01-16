@@ -166,13 +166,13 @@ class SectionComponent extends Component {
       phone: phone,
       message:message
     }
-    console.log(bigData);
+    // console.log(bigData);
     // console.log(this.state) 
     // const values = JSON.stringify(this.state)
     // alert(values)
     fetch('https://formsubmit.co/ajax/federicodjprzgmz247@gmail.com', {
       method:"POST",
-      body: bigData
+      body: new FormData(e.target)
   })
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then(json => {
@@ -436,31 +436,34 @@ class SectionComponent extends Component {
             </p>
           </div>
         </article>
-        <article className="mt-4">
+
+        <article id="contact" className="mt-4">
           <h1 className="text-4xl text-center mb-4">Contact</h1>
           <hr/>
-          <div className="sm:w-1/2 lg:w-1/3 shadow-lg rounded-lg h-auto mx-auto text-gray-600 font-bold">
-            <form onSubmit={this.sendEmail} className="dataEmail">
-              <div>
-                <label className="block" for="name">Name</label>
-                <input className="w-full name" type="text"  name="name" required placeholder="your name" />
+          <div className="sm:w-auto lg:w-8/12 shadow-lg rounded-lg h-auto mx-auto text-gray-600 font-bold">
+            <form onSubmit={this.sendEmail} className="dataEmail  grid sm:grid-cols-1 md:grid-cols-2">
+              <div >
+                <label className="block uppercase tracking-wide text-xs font-bold mb-2" for="name">Name</label>
+                <input className="w-11/12 border border-gray-200 rounded py-3 px-4 mb-3 name" type="text"  name="name" required placeholder="your name" />
               </div>
               <div>
-                <label className="block" for="email">email</label>
-                <input className="w-full email" type="email"  name="email" required placeholder="your email" />
+                <label className="block uppercase tracking-wide text-xs font-bold mb-2" for="email">email</label>
+                <input className="w-11/12 border border-gray-200 rounded py-3 px-4 mb-3 email" type="email"  name="email" required placeholder="your email" />
               </div>
-              <div>
-                <label className="block" for="phone">phone</label>
-                <input className="w-full phone" type="number"  name="phone" required placeholder="your number"/>
+              <div className="col-span-2">
+                <label className="block uppercase tracking-wide text-xs font-bold mb-2" for="phone">phone</label>
+                <input className="w-9/12 border border-gray-200 rounded py-3 px-4 mb-3 phone" type="number"  name="phone" required placeholder="your number"/>
               </div>
-              <div>
-                <label className="block" for="message">message</label>
-                <textarea className="w-full message font-bold" name="message" rows="5" placeholder="your message" required></textarea>
+              <div className="col-span-2">
+                <label className="block uppercase tracking-wide text-xs font-bold mb-2" for="message">message</label>
+                <textarea className="w-11/12 border border-gray-200 rounded py-3 px-4 mb-3 message font-bold" name="message" rows="5" cols="10" placeholder="your message" required></textarea>
               </div>
               <div className="load">
                 <p>Los datos se enviaron correctamenta</p>
               </div>
-              <input className="bg-blue-500 text-white hover:bg-blue-700 w-1/4 h-10 rounded-lg mb-2" type="submit" value="Send Message"/>
+              <div className="col-span-2">
+                <input className="bg-blue-500 text-white hover:bg-blue-700 w-full h-10 rounded-lg mb-2" type="submit" value="Send Message" />
+                </div>
             </form>
           </div> 
         </article>
